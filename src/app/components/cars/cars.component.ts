@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/models/cardetail';
 import { CarImage } from 'src/app/models/carimage';
-import { CardetailsService } from 'src/app/services/cardetails.service';
+import { CarService } from 'src/app/services/car.service';
 import { CarimageService } from 'src/app/services/carimage.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class CarsComponent implements OnInit {
   carDetails:CarDetail[] = [];
   ImageAddress = "https://localhost:44387";
   DefaultImagePath = "/CarImages/default.jpg";
-  constructor(private cardetailsService:CardetailsService) { }
+  constructor(private cardetailsService:CarService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getCarDetails();
@@ -26,6 +27,9 @@ export class CarsComponent implements OnInit {
       this.carDetails=response.data;
       this.dataLoaded=true;
     })
+  }
+  getCarsByBrand(brandId:number){
+
   }
 
 }

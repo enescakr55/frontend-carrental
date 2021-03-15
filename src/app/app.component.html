@@ -1,14 +1,15 @@
 <app-navi></app-navi>
+
 <div class="container">
     <div class="row" style="margin-top:10px;">
     <div name="markalar" id="markalar" class="col-md-3">
         <app-brands></app-brands>
     </div>
     <div class="row col-md-9">
-        <div id="arabalar" name="arabalar" class="border border-info" style="margin-bottom:10px;"><app-cars></app-cars></div>
+        <!--<div id="arabalar" name="arabalar" class="border border-info" style="margin-bottom:10px;"><app-cars></app-cars></div>
         <div id="renkler" name="renkler" class="border border-info" style="margin-bottom:10px;"><app-colors></app-colors></div>
-        <div id="renkler" name="renkler" class="border border-info" style="margin-bottom:10px;"><app-customers></app-customers></div>
+        <div id="renkler" name="renkler" class="border border-info" style="margin-bottom:10px;"><app-customers></app-customers></div> -->
+        <router-outlet></router-outlet>
     </div>
     </div>
 </div>
-<router-outlet></router-outlet>
