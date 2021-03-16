@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+.arkaplanrengi {
+    
+/*background: rgb(0,0,0);
+background: -moz-linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(49,68,99,1) 50%, rgba(67,67,67,1) 100%);
+background: -webkit-linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(49,68,99,1) 50%, rgba(67,67,67,1) 100%);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(49,68,99,1) 50%, rgba(67,67,67,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#434343",GradientType=1); */
+background-color: #2f3642;
+background:#2f3642;
+}
+.main-wrapper {
+    height: 100vh;  
+  }
+  li {
+      margin-bottom: 3px;
+      cursor:pointer;
+  }
+  .cardetailText{
+      color:white;
+  }

@@ -1,0 +1,51 @@
+<div class="row">
+    <div class = "col col-lg-6">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                    <img [src]="mainLink + carImages[0].imagePath" class="d-block w-100" alt="...">
+              </div>
+              <div *ngIf="carImages[1] != undefined" class="carousel-item">
+                    <img [src]="mainLink + carImages[1].imagePath" class="d-block w-100" alt="...">
+              </div>
+              <div *ngIf="carImages[2] != undefined" class="carousel-item">
+                    <img [src]="mainLink + carImages[2].imagePath" class="d-block w-100" alt="...">
+              </div>
+              <div *ngIf="carImages[3] != undefined" class="carousel-item">
+                <img [src]="mainLink + carImages[3].imagePath" class="d-block w-100" alt="...">
+              </div>
+            <div *ngIf="carImages[4] != undefined" class="carousel-item">
+                <img [src]="mainLink + carImages[4].imagePath" class="d-block w-100" alt="...">
+            </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div> 
+    <div class="col-lg-6">
+        <div *ngIf="cardetails && cardetails[0]">
+            
+            <p class="cardetailText">Araç Adı : {{cardetails[0].carName}}</p>
+            <p class="cardetailText">Araç Markası : {{cardetails[0].brandName}}</p>
+            <p class="cardetailText">Günlük ücret : {{cardetails[0].dailyPrice}}</p>
+            <p class="cardetailText">Araç Rengi : {{cardetails[0].colorName}}</p>
+            <p class="cardetailText">Model yılı : {{cardetails[0].modelYear}}</p>
+            <p class="cardetailText">Ek Açıklamalar : {{cardetails[0].description}}</p>
+        
+        
+        
+        
+        
+        </div>
+    </div>
+
+
+
+
+</div>

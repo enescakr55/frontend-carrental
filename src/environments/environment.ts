@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: "https://localhost:44387/api/",
+  mainLink: "https://localhost:44387",
 };
 
 /*

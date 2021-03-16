@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brand.service';
 
@@ -8,12 +9,19 @@ import { BrandService } from 'src/app/services/brand.service';
   styleUrls: ['./brands.component.css']
 })
 export class BrandsComponent implements OnInit {
-  currentBrand?:Brand;
+  currentBrand:Brand | null;
   brands:Brand[]=[];
   dataLoaded=false;
-  constructor(private brandService:BrandService) { }
+  constructor(private brandService:BrandService,private router:Router,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe(val=>{
+      if(val instanceof NavigationStart){
+        if(val instanceof NavigationStart){
+          this.clearCurrentBrand();
+        }
+      }
+    })
     this.getBrands();
   }
   getBrands(){
@@ -29,7 +37,6 @@ export class BrandsComponent implements OnInit {
     return "list-group-item";
   }
   setCurrentBrand(brand:Brand){
-    console.log(brand.brandName);
     this.currentBrand = brand;
   }
   getAllCarsClass(){
@@ -39,6 +46,6 @@ export class BrandsComponent implements OnInit {
     return "list-group-item"
   }
   clearCurrentBrand(){
-    this.currentBrand = undefined;
+    this.currentBrand = null;
   }
 }
