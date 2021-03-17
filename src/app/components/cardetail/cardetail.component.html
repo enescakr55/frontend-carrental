@@ -1,20 +1,23 @@
 <div class="row">
     <div class = "col col-lg-6">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div *ngFor="let carImageInfo of carImageInfos"class="carousel-item {{carImageInfo.active}}">
-                <img [src]="mainLink + carImageInfo.element.imagePath" class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button *ngFor="let carImageInfo of carImageInfos" type="button" data-bs-target="#carouselExampleIndicators" attr.data-bs-slide-to="{{carImageInfo.slideNo}}" [class]="carImageInfo.active" aria-current="true" aria-label="Slide 1"></button>
+        </div>
+        <div class="carousel-inner">
+          <div *ngFor="let carImageInfo of carImageInfos" class="carousel-item {{carImageInfo.active}}">
+            <img [src]="mainLink + carImageInfo.element.imagePath" class="d-block w-100" alt="...">
           </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div> 
     <div class="col-lg-6">
         <div *ngIf="cardetails && cardetails[0]">
@@ -32,8 +35,4 @@
         
         </div>
     </div>
-
-
-
-
 </div>

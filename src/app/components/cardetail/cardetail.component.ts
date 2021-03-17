@@ -39,10 +39,10 @@ export class CardetailComponent implements OnInit {
       let x = 0;
       response.data.forEach(element => {
         if(x==0){
-          this.carImageInfos[x] = {"active":"active",element};
+          this.carImageInfos[x] = {"slideNo":x,"active":"active",element};
           x+=1;
         }else{
-          this.carImageInfos[x] = {"active":"",element};
+          this.carImageInfos[x] = {"slideNo":x,"active":"",element};
           x+=1;
         }
       });
