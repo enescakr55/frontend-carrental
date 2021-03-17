@@ -20,6 +20,7 @@ export class CardetailComponent implements OnInit {
   cardetails:CarDetail[];
   carImages:CarImage[];
   activeItem =  "active";
+  carImageInfos:any[] = [];
 
   ngOnInit(): void {
   this.activatedRoute.params.subscribe(params=>{
@@ -35,8 +36,18 @@ export class CardetailComponent implements OnInit {
   }
   getCarImagesByCarId(){
     this.carimageService.getCarImagesByCarId(this.carId).subscribe(response=>{
-      this.carImages = response.data;
-      console.log(this.carImages);
+      let x = 0;
+      response.data.forEach(element => {
+        if(x==0){
+          this.carImageInfos[x] = {"active":"active",element};
+          x+=1;
+        }else{
+          this.carImageInfos[x] = {"active":"",element};
+          x+=1;
+        }
+      });
+      console.log("carImage");
+      console.log(this.carImageInfos);
     })
   }
 }
