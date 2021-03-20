@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { Color } from 'src/app/models/color';
 import { ColorService } from 'src/app/services/color.service';
+import { BrandsComponent } from '../brands/brands.component';
 
 @Component({
   selector: 'app-colors',
@@ -10,7 +11,8 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class ColorsComponent implements OnInit {
   colors:Color[]=[];
-  currentColor:Color|null;
+  selectedColor:number;
+  public static currentColor:Color|null;
   constructor(private colorService:ColorService,private router:Router,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -28,15 +30,17 @@ export class ColorsComponent implements OnInit {
   }
 
   getCurrentColor(color:Color){
-    if(this.currentColor == color){
-      return "list-group-item active";
+    if(ColorsComponent.currentColor == color){
+      return "true";
     }
-    return "list-group-item";
+    return "false";
   }
-  setCurrentColor(color:Color){
-    this.currentColor = color;
+  setCurrentColor(colorId:number){
+    this.colorService.getColorById(colorId).subscribe(response=>{
+      ColorsComponent.currentColor = response.data;
+    })
   }
   clearCurrentColor(){
-    this.currentColor = null;
+    ColorsComponent.currentColor = null;
   }
 }

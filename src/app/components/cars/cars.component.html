@@ -2,7 +2,13 @@
   <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
-  <div *ngFor="let car of cars" class="card" style="width: 18rem; display:inline-block; margin-left:10px; margin-bottom: 10px;">
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Araç adına göre ara </div>
+    </div>
+    <input [(ngModel)]="pipeCarName" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Araç Adı">
+  </div>
+  <div *ngFor="let car of cars | filter:getCurrentColor():getCurrentBrand():pipeCarName" class="card" style="width: 18rem; display:inline-block; margin-left:10px; margin-bottom: 10px;">
     <!--<img class="card-img-top" alt="..." src=""> -->
     <div class="card-body">
       <h5 class="card-title">{{car.carName}}</h5>

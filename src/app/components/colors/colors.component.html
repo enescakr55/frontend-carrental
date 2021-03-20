@@ -1,3 +1,3 @@
-<ul *ngFor="let color of colors"class="list-group" >
-  <li routerLink="/cars/color/{{color.colorId}}" [class]="getCurrentColor(color)" (click)="setCurrentColor(color)">{{color.colorName}}</li>
-</ul>
+<select [(ngModel)]="selectedColor" (ngModelChange)="setCurrentColor(selectedColor)" class="form-select" aria-label="Marka seç">
+  <option *ngFor="let color of colors" selected="{{getCurrentColor(color)}}" [value]="color.colorId">{{color.colorName}}</option>
+</select>

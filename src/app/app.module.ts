@@ -12,6 +12,8 @@ import { ColorsComponent } from './components/colors/colors.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { LeftsidebarComponent } from './components/leftsidebar/leftsidebar.component';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,11 +29,14 @@ import { LeftsidebarComponent } from './components/leftsidebar/leftsidebar.compo
     CardetailComponent,
 
     LeftsidebarComponent,
+
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

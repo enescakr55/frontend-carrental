@@ -32,4 +32,8 @@ export class CarService {
     this.apiLink = environment.apiUrl+"cars/getcardetailbyid?carId="+carId;
     return this.httpClient.get<ListResponseModel<CarDetail>>(this.apiLink);
   }
+  getCarsBrandAndColor(colorId:number,brandId:number):Observable<ListResponseModel<Car>>{
+    this.apiLink = environment.apiUrl+"cars/getcarscolorandbrand?colorId="+colorId+"&brandId="+brandId;
+    return this.httpClient.get<ListResponseModel<Car>>(this.apiLink);
+  }
 }

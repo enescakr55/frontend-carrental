@@ -1,5 +1,7 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { combineLatest } from 'rxjs';
 import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brand.service';
 
@@ -9,9 +11,10 @@ import { BrandService } from 'src/app/services/brand.service';
   styleUrls: ['./brands.component.css']
 })
 export class BrandsComponent implements OnInit {
-  currentBrand:Brand | null;
+  public static currentBrand:Brand | null;
   brands:Brand[]=[];
   dataLoaded=false;
+  selectedBrand:number;
   constructor(private brandService:BrandService,private router:Router,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -31,21 +34,23 @@ export class BrandsComponent implements OnInit {
     })
   }
   getCurrentBrand(brand:Brand){
-    if(brand == this.currentBrand){
-      return "list-group-item active";
+    if(brand == BrandsComponent.currentBrand){
+      return "selected";
     }
-    return "list-group-item";
+    return "";
   }
-  setCurrentBrand(brand:Brand){
-    this.currentBrand = brand;
+  setCurrentBrand(brandId:number){
+    this.brandService.getBrandbyId(brandId).subscribe(response=>{
+      BrandsComponent.currentBrand = response.data;
+    })
   }
   getAllCarsClass(){
-    if(!this.currentBrand){
+    if(!BrandsComponent.currentBrand){
       return "list-group-item active";
     }
     return "list-group-item"
   }
   clearCurrentBrand(){
-    this.currentBrand = null;
+    BrandsComponent.currentBrand = null;
   }
 }

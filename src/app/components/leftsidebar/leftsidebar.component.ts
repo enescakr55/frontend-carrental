@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { Brand } from 'src/app/models/brand';
+import { Color } from 'src/app/models/color';
+import { BrandsComponent } from '../brands/brands.component';
+import { ColorsComponent } from '../colors/colors.component';
 
 @Component({
   selector: 'app-leftsidebar',
@@ -9,6 +13,8 @@ import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular
 export class LeftsidebarComponent implements OnInit {
   clearedFilterClass:string;
   showAll:boolean = false;
+  currentBrand:Brand | null = BrandsComponent.currentBrand;
+  currentColor:Color | null = ColorsComponent.currentColor;
   constructor(private router:Router) {}
 
   ngOnInit(): void {
@@ -32,6 +38,15 @@ export class LeftsidebarComponent implements OnInit {
         }
   }
   setParams(){
+    BrandsComponent.currentBrand = null;
+    ColorsComponent.currentColor = null;
     this.showAll = true;
+  }
+  getColorAndBrand(){
+    this.currentBrand = BrandsComponent.currentBrand;
+    this.currentColor = ColorsComponent.currentColor;
+    console.log(this.currentBrand);
+    console.log(this.currentColor);
+    window.location.href = "/cars/filter/"+this.currentColor?.colorId+"/"+this.currentBrand?.brandId;
   }
 }
