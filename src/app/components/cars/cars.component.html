@@ -13,7 +13,7 @@
     <div class="card-body">
       <h5 class="card-title">{{car.carName}}</h5>
       <p class="card-text">Model Yılı : {{car.modelYear}}<br>Kiralama Bedeli : {{car.dailyPrice}}<br>Açıklama : {{car.description}}</p>
-      <a href="#" class="btn btn-primary">Kirala</a>
+      <a routerLink="/rental/add/{{car.id}}" class="btn btn-primary">Kirala</a>
       <a routerLink="/cars/getCarDetails/{{car.id}}" style="margin-left:5px;" class="btn btn-secondary">Araç Detayları</a>
     </div>
   </div>

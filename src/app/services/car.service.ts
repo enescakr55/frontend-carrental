@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { ListResponseModel } from '../models/listResponseModel';
 import { CarDetail } from '../models/cardetail';
 import { Car } from '../models/car';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,9 @@ export class CarService {
   getCarsBrandAndColor(colorId:number,brandId:number):Observable<ListResponseModel<Car>>{
     this.apiLink = environment.apiUrl+"cars/getcarscolorandbrand?colorId="+colorId+"&brandId="+brandId;
     return this.httpClient.get<ListResponseModel<Car>>(this.apiLink);
+  }
+  add(car:Car):Observable<ResponseModel>{
+    this.apiLink = environment.apiUrl+"cars/add";
+    return this.httpClient.post<ResponseModel>(this.apiLink,car);
   }
 }

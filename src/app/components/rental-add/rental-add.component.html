@@ -1,0 +1,48 @@
+<h5>{{defaultCarId}}</h5>
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Aracı Kirala</h5></div>
+            <div class="card-body">
+                <form [formGroup]="rentalAddForm">
+                    <div *ngIf="defaultCarId !==null"class="mb-3">
+                        <label for="carId">Araç Id</label>
+                        <div class="form-group">
+                            <input type="number" id="carId" [(ngModel)]="defaultCarId" formControlName="carId" class="form-control" placeholder="Araç Id'si"/>
+                        </div>
+                    </div>
+                    <div *ngIf="defaultCarId == null"class="mb-3">
+                        <label for="carId">Araç Id</label>
+                        <div class="form-group">
+                            <input type="number" id="carId" formControlName="carId" class="form-control" placeholder="Araç Id'si"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="customerId">Kullanıcı Id'si</label>
+                        <div class="form-group">
+                            <input type="number" id="customerId" formControlName="customerId" class="form-control" placeholder="Kullanıcı Id'si"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="rentDate">Kiralanacak Tarih</label>
+                        <div class="form-group">
+                            <input type="date" id="rentDate" formControlName="rentDate" class="form-control" placeholder="Kiralama Tarihi"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="returnDate">Geri alma tarihi</label>
+                        <div class="form-group">
+                            <input type="date" id="returnDate" formControlName="returnDate" class="form-control" placeholder="Geri alma tarihi"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()" >Kirala</button>
+            </div>
+            
+        </div>
+
+    </div>
+
+</div>

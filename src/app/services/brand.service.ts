@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Brand } from '../models/brand';
 import { ListResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
@@ -19,6 +20,10 @@ export class BrandService {
   getBrandbyId(brandId:number):Observable<SingleResponseModel<Brand>>{
     let apiLink = environment.apiUrl+"brands/getbyid?id="+brandId;
     return this.httpClient.get<SingleResponseModel<Brand>>(apiLink)
+  }
+  add(brand:Brand):Observable<ResponseModel>{
+    let apiLink = environment.apiUrl+"brands/add";
+    return this.httpClient.post<ResponseModel>(apiLink,brand);
   }
 
   }
