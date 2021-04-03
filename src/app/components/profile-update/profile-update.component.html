@@ -1,0 +1,23 @@
+<div class="row">
+<div class="title"><font color="white"><h3>Profilimi Güncelle</h3></font></div><br>
+<div class="col-md-3" style="max-width: 200px;">
+        <br><img width="100%" src="/assets/images/usericon.png">
+</div>
+<div class="col-md-9">
+        <form [formGroup]="profileUpdateForm">
+        <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"><font color="white">Ad</font></label>
+                <input [(ngModel)]="ad" formControlName="firstName" type="text" class="form-control" rows="3">
+         </div>
+        <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"><font color="white">Soyad</font></label>
+                <input [(ngModel)]="soyad" formControlName="lastName" type="text" class="form-control" rows="3">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><font color="white">Email Adresi</font></label>
+            <input [(ngModel)]="mail" formControlName="email" type="email" class="form-control" rows="3">
+          </div>
+          <button type="submit" (click)="update()" class="btn btn-primary">Güncelle</button>
+        </form>
+</div>
+</div>

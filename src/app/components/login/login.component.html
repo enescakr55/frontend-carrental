@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<br><div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Sisteme Giriş Yap</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fas fa-car"></i></span>
+				</div>
+			</div>
+			<div class="card-body">
+				<form [formGroup]="loginForm">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+					<input type="email" class="form-control" formControlName="email" placeholder="E-Mail" required>
+						
+					</div>
+                    <br>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+					<input type="password" class="form-control" formControlName="password" placeholder="Şifre" required>
+					</div>
+                    <br>
+					<div class="form-group">
+					<input (click)="login()" value="Giriş Yap" class="btn float-right login_btn">
+					</div>
+					<font color="white">Henüz üye değil misin ? <font color="red" style="cursor:pointer;" (click)="gotoRegisterPage()">Kayıt ol</font> </font>
+				</form>>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+.carDetailRentButton {
+    background-color:rgb(3, 226, 3); 
+    border:none; 
+    box-shadow:0px 0px 20px 2px rgb(17, 227, 235); 
+    margin-top:20px; 
+    padding: 10px; 
+    border-radius: 50px;
+    color:white;
+    width: 100%;
+
+}
+.carNameTitle{
+    color:white;
+    background-color: blue;
+    text-align: center;
+    padding: 20px;
+    font-size: large;
+    border-radius: 30px;
+    box-shadow: cornsilk 1px 1px;
+}

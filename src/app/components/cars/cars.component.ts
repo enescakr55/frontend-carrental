@@ -19,11 +19,12 @@ import { ColorsComponent } from '../colors/colors.component';
 })
 export class CarsComponent implements OnInit {
   dataLoaded = false;
+  vip = true;
   carDetails:CarDetail[] = [];
   cars :Car[]=[];
   ImageAddress = "https://localhost:44387";
   DefaultImagePath = "/CarImages/default.jpg";
-  getCarImage:CarImage[];
+  getCarImage:CarImage[] = [];
   pipeColor:Color |null = null;
   pipeBrand:Brand | null = null;
   pipeCarName:string | null = null;
@@ -54,24 +55,29 @@ export class CarsComponent implements OnInit {
     this.carService.getCars().subscribe(response=>{
         this.cars = response.data;
         this.dataLoaded = true;
+        this.fillCarImages();
+        console.log(this.getCarImage);
     })
   }
   getCarsByBrandId(brandId:number){
     this.carService.getCarsByBrand(brandId).subscribe(response=>{
       this.cars = response.data;
       this.dataLoaded = true;
+      this.fillCarImages();
     })
   }
   getCarsByColorId(colorId:number){
     this.carService.getCarsByColor(colorId).subscribe(response=>{
       this.cars = response.data;
       this.dataLoaded = true;
+      this.fillCarImages();
     })
   }
   getCarsColorAndBrand(colorId:number,brandId:number){
     this.carService.getCarsBrandAndColor(colorId,brandId).subscribe(response=>{
       this.cars = response.data;
       this.dataLoaded = true;
+      this.fillCarImages();
     })
   }
   findCarAlert(){
@@ -86,6 +92,21 @@ export class CarsComponent implements OnInit {
   }
   getCurrentColor(){
     return this.pipeColor;
+  }
+  getCarImageByCarId(carId:number){
+    this.carimageService.getCarImagesByCarId(carId).subscribe(response=>{
+    this.getCarImage.push(response.data[0]);
+    })
+    
+  }
+  fillCarImages(){
+    this.cars.forEach(car => {
+      this.getCarImageByCarId(car.id);
+    });
+  }
+  writeCarImageUrl(carId:number){
+    let carImagePath = this.getCarImage.find(p=>p.carId==carId);
+    return this.ImageAddress+carImagePath?.imagePath;
   }
 
 

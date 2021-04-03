@@ -18,16 +18,56 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+      <button routerLink="/user/rent/{{carId}}" class="carDetailRentButton"><b>Hemen Kirala</b></button>
     </div> 
     <div class="col-lg-6">
         <div *ngIf="cardetails && cardetails[0]">
             
-            <p class="cardetailText">Araç Adı : {{cardetails[0].carName}}</p>
+            <!--<p class="cardetailText carNameTitle">{{cardetails[0].carName}}</p>
             <p class="cardetailText">Araç Markası : {{cardetails[0].brandName}}</p>
             <p class="cardetailText">Günlük ücret : {{cardetails[0].dailyPrice}}</p>
             <p class="cardetailText">Araç Rengi : {{cardetails[0].colorName}}</p>
             <p class="cardetailText">Model yılı : {{cardetails[0].modelYear}}</p>
-            <p class="cardetailText">Ek Açıklamalar : {{cardetails[0].description}}</p>
+            <p class="cardetailText">Ek Açıklamalar : {{cardetails[0].description}}</p> -->
+            <ol class="list-group list-group-numbered">
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">Araç Adı</div>
+                  {{cardetails[0].carName}}
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">Araç Markası</div>
+                  {{cardetails[0].brandName}}
+                </div>
+
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">Günlük ücret </div>
+                  {{cardetails[0].dailyPrice}}
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">Model Yılı</div>
+                  {{cardetails[0].modelYear}}
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">Renk</div>
+                  {{cardetails[0].colorName}}
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">Açıklama</div>
+                  {{cardetails[0].description}}
+                </div>
+              </li>
+            </ol>
         
         
         

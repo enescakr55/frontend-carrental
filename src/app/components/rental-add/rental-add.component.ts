@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RentalService } from 'src/app/services/rental.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-rental-add',
@@ -39,6 +40,7 @@ export class RentalAddComponent implements OnInit {
         console.log(response);
         this.toastrService.success(response.message,"Başarılı");
       },errorResponse=>{
+        console.log(errorResponse);
         if(errorResponse.error.success == false){
           this.toastrService.error(errorResponse.error.message,"Başarısız");
         }
@@ -51,7 +53,7 @@ export class RentalAddComponent implements OnInit {
         }
       })
     }else{
-      this.toastrService.error("Formdaki bilgileri kontrol ediniz","Başarısız");
+      this.toastrService.error(environment.formnotvalidmessage,environment.formnotvalidtitle);
     }
   }
 }

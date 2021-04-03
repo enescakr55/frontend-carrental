@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">CarRental</a>
@@ -6,19 +7,52 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+          <li *ngIf="ad" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <font color="#00ebff"><i class="fas fa-user"></i> Hoşgeldin {{ad}}</font>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/user/update">Profili Güncelle</a></li>
+              <li><a class="dropdown-item" routerLink="/user/logout">Çıkış Yap</a></li>
+            </ul>
+          </li>
+          <li *ngIf="ad == null" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <font color="#00ebff">Hesap</font>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/login">Giriş Yap</a></li>
+              <li><a class="dropdown-item" routerLink="/register">Kayıt Ol</a></li>
+            </ul>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" *ngIf="adsoyad"><font color="#00ebff">Hoşgeldin {{ad}}</font></a>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="">Arabalar</a>
+            <a class="nav-link" aria-current="page" routerLink=""><i class="fas fa-car"></i> Arabalar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#markalar">Markalar</a>
+            <a class="nav-link" routerLink="/customers"><i class="fas fa-user-friends"></i> Müşteriler</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/customers">Müşteriler</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Yetkili İşlemleri
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/car/add">Araba ekle</a></li>
+              <li><a class="dropdown-item" routerLink="/brand/add">Marka Ekle</a></li>
+              <!--<li><hr class="dropdown-divider"></li>-->
+              <li><a class="dropdown-item" routerLink="/color/add">Renk Ekle</a></li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#renkler">Renkler</a>
-          </li>
+
         </ul>
+        <li *ngIf="expiremin > 0" class="nav-item ms-auto">
+          <div style="display:inline-block;">
+            <font color="white">Kalan Oturum Süresi : {{expiremin}} dakika </font>
+            <button type="button" (click)="renewToken()" class="btn btn-light">Token Yenile</button>
+          </div>
+        </li>
       </div>
     </div>
   </nav>

@@ -1,0 +1,80 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Aracı Kirala</h5></div>
+            <div class="card-body">
+                <form [formGroup]="rentalAddForm">
+                    <div *ngIf="requiredScore != null" style=" background-color:rgb(55, 5, 173); color:white; padding:7px; border-radius: 5px;">Aracı kiralamak için gereken findeks puanı : {{requiredScore}}</div>
+                    <div *ngIf="userFindexScore < requiredScore" style="margin-top:4px; background-color:rgb(255, 0, 0); color:white; padding:7px; border-radius: 5px;">Findeks puanınız aracı kiralamaya yetmiyor.</div>
+                    <div class="mb-3">
+                        <label for="carId">Araç Id</label>
+                        <div class="form-group">
+                            <input type="number" id="carId" [readonly]="true" [(ngModel)]="carId" formControlName="carId" class="form-control" placeholder="Araç Id'si"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="rentDate">Kiralanacak Tarih</label>
+                        <div class="form-group">
+                            <input type="date" id="rentDate" (change)="gunFarkiBul()" formControlName="rentDate" class="form-control" placeholder="Kiralama Tarihi"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="returnDate">Geri alma tarihi</label>
+                        <div class="form-group">
+                            <input type="date" id="returnDate" (change)="gunFarkiBul()" formControlName="returnDate" class="form-control" placeholder="Geri alma tarihi"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="bg-danger" style="padding:10px; border-radius: 20px;"><font color="white">{{savedCardMessage}}</font></div>
+                    <div name="savedCardsList"><div class="bg-danger" style="display:inline-block; margin-top:10px; padding:5px; border-radius:10px; border:5px solid white;" *ngFor="let savedCard of savedCards" (click)="useCard(savedCard.id);"><img src="/assets/images/CreditCardicon.png" style="width: 50px;"><font color="white"> {{savedCard.cardName}}</font></div></div>
+                    <div class="col-3"><img style="width: 100%;"src="/assets/images/creditcard.png" alt="image"></div>
+                    <div class="col-8">                    <div class="mb-3">
+                        <label for="returnDate">Kart No</label>
+                        <div class="form-group">
+                            <input type="text" id="cardNo" formControlName="cardNo" class="form-control" placeholder="Kart No"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="returnDate">CVV</label>
+                        <div class="form-group">
+                            <input type="text" id="cvv" formControlName="cvv" class="form-control" placeholder="CVV"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="returnDate">Son kullanım tarihi</label>
+                        <div class="form-group">
+                            <input type="text" id="sonKullanim" formControlName="sonKullanim" class="form-control" placeholder="mm/yyyy"/>
+                        </div>
+                    </div></div></div>
+
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()" >Kirala <span *ngIf="OdenecekUcret" class="badge bg-secondary">₺{{OdenecekUcret}}</span></button>
+            </div>
+           <!--   KART KAYIT MODAL BAŞLANGIÇ     -->
+           <div class="modal" tabindex="-1" [style]="modalStyle">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Kart Kaydet</h5>
+                  <button (click)="closeModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>İşlem yaptığınız kartınızı kaydetmek ister misiniz ?</p>
+                  <label for="kartAdi">Kartınızı hangi adla kaydetmek istersiniz</label>
+                  <input type="text" id="kartAdi" class="form-control" placeholder="Kartınızı hangi adla kaydetmek istersiniz"/>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="closeModal()" data-bs-dismiss="modal">Kapat</button>
+                  <button type="button" (click)="saveCard()" class="btn btn-primary">Kartı kaydet</button>
+                </div>
+              </div>
+            </div>
+          </div>
+           <!--     KART KAYIT MODAL BİTİŞ       --> 
+        </div>
+
+    </div>
+
+</div>

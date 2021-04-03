@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import { Toast, ToastrService } from 'ngx-toastr';
 import { BrandService } from 'src/app/services/brand.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-brand-add',
@@ -37,7 +38,7 @@ export class BrandAddComponent implements OnInit {
       })
 
     }else{
-      this.toastrService.error("Form bilgilerini kontrol ediniz","Başarısız");
+      this.toastrService.error(environment.formnotvalidmessage,environment.formnotvalidtitle);
     }
   }
 }

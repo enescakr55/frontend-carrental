@@ -26,6 +26,7 @@ export class ColorsComponent implements OnInit {
   getColors(){
     this.colorService.getColors().subscribe(response=>{
       this.colors=response.data;
+      //this.selectedColor = this.colors[0].colorId;
     });
   }
 

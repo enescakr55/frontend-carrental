@@ -10,18 +10,34 @@
                             <input type="text" id="carName" formControlName="carName" class="form-control" placeholder="Araç adı"/>
                         </div>
                     </div>
-                    <div class="mb-3">
+                    <!--<div class="mb-3">
                         <label for="brandId">Marka Id'si</label>
                         <div class="form-group">
                             <input type="number" id="brandId" formControlName="brandId" class="form-control" placeholder="Marka Id'si"/>
                         </div>
+                    </div> -->
+                    <div class="mb-3">
+                        <label for="brandId">Marka Seç</label>
+                        <div class="form-group">
+                            <select class="form-control" formControlName="brandId" id="brandId">
+                              <option *ngFor="let brand of brands" [value]="brand.brandId">{{brand.brandName}}</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3">
+                        <label for="colorId">Renk Seç</label>
+                        <div class="form-group">
+                            <select class="form-control" formControlName="colorId" id="colorId">
+                              <option *ngFor="let color of colors" [value]="color.colorId">{{color.colorName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--<div class="mb-3">
                         <label for="colorId">Renk Id'si</label>
                         <div class="form-group">
                             <input type="number" id="colorId" formControlName="colorId" class="form-control" placeholder="Renk Id'si"/>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="mb-3">
                         <label for="modelYear">Model Yılı</label>
                         <div class="form-group">
