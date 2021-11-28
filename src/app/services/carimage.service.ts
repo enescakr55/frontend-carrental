@@ -1,3 +1,4 @@
+import { ResponseModel } from './../models/responseModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -12,6 +13,10 @@ import { ListResponseModel } from '../models/listResponseModel';
 export class CarimageService {
   apiLink:string;
   constructor(private httpClient:HttpClient) { }
+  add(addImageModel:FormData):Observable<ResponseModel>{
+    this.apiLink = environment.apiUrl+"carimages/add";
+    return this.httpClient.post<ListResponseModel<CarImage>>(this.apiLink,addImageModel);
+  }
   getCarImages():Observable<ListResponseModel<CarImage>>{
     this.apiLink = environment.apiUrl+"carimages/getall";
     return this.httpClient.get<ListResponseModel<CarImage>>(this.apiLink);
@@ -21,5 +26,5 @@ export class CarimageService {
     return this.httpClient.get<ListResponseModel<CarImage>>(this.apiLink);
   }
 
-  
+
 }

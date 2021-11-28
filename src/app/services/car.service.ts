@@ -41,4 +41,8 @@ export class CarService {
     this.apiLink = environment.apiUrl+"cars/add";
     return this.httpClient.post<ResponseModel>(this.apiLink,car);
   }
+  delete(carId:number):Observable<ResponseModel>{
+    this.apiLink = environment.apiUrl+"cars/deletebyid?carid="+carId;
+    return this.httpClient.get<ResponseModel>(this.apiLink);
+  }
 }

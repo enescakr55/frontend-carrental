@@ -25,6 +25,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { UserRentComponent } from './components/user-rent/user-rent.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ProfileUpdateComponent } from './components/profile-update/profile-update.component';
+import { AdminCarManagementComponent } from './components/admin-car-management/admin-car-management.component';
+import { AddImageToCarComponent } from './components/add-image-to-car/add-image-to-car.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,9 @@ import { ProfileUpdateComponent } from './components/profile-update/profile-upda
     RegisterComponent,
     UserRentComponent,
     LogoutComponent,
-    ProfileUpdateComponent
+    ProfileUpdateComponent,
+    AdminCarManagementComponent,
+    AddImageToCarComponent
 
   ],
   imports: [

@@ -1,0 +1,22 @@
+
+  <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Araç adına göre ara </div>
+    </div>
+    <input [(ngModel)]="pipeCarName" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Araç Adı">
+  </div>
+  <div *ngFor="let car of cars | filter:getCurrentColor():getCurrentBrand():pipeCarName" class="card" style="width: 18rem; display:inline-block; margin-left:10px; margin-bottom: 10px;">
+    <img class="card-img-top" style="height:177px;" alt="..." src="{{writeCarImageUrl(car.id)}}">
+    <div class="card-body">
+      <h5 class="card-title">{{car.carName}}</h5>
+      <p class="card-text">Model Yılı : {{car.modelYear}}<br>Kiralama Bedeli : {{car.dailyPrice}}<br>Açıklama : {{car.description}}</p>
+      <a routerLink="/user/rent/{{car.id}}" class="btn btn-primary">Kirala</a>
+      <a routerLink="/cars/getCarDetails/{{car.id}}" style="margin-left:5px;" class="btn btn-secondary">Araç Detayları</a>
+      <button (click)="deleteCar(car.id)" class="btn btn-danger" style="margin-left:5px;">Sil</button>
+      <button routerLink="/addimagetocar/{{car.id}}" class="btn btn-success" style="margin-top: 10px;">Resim Ekle</button>
+
+    </div>
+  </div>

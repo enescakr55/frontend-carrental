@@ -1,5 +1,7 @@
+import { AddImageToCarComponent } from './components/add-image-to-car/add-image-to-car.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminCarManagementComponent } from './components/admin-car-management/admin-car-management.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { BrandsComponent } from './components/brands/brands.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
@@ -34,6 +36,8 @@ const routes: Routes = [
   {path:"user/rent/:carId",component:UserRentComponent,canActivate:[LoginGuard]},
   {path:"user/logout",component:LogoutComponent,canActivate:[LoginGuard]},
   {path:"user/update",component:ProfileUpdateComponent,canActivate:[LoginGuard]},
+  {path:"admincarmanagement",component:AdminCarManagementComponent},
+  {path:"addimagetocar/:carId",component:AddImageToCarComponent,canActivate:[LoginGuard]},
 ];
 
 @NgModule({
