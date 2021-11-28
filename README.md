@@ -1,27 +1,35 @@
-# Carrental
+<h1>Angular ile Yazılmış Araç Kiralama Sistemi Frontend</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+Projeye ait BACKEND projesi https://github.com/enescakr55/ReCapProject adresindedir.
 
-## Development server
+<h3>Hesap Giriş Sayfası</h3>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![1](https://raw.githubusercontent.com/enescakr55/frontend-carrental/master/OrnekResimler/login.png)
 
-## Code scaffolding
+<h3>Üyelik Sayfası</h3>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![1](https://raw.githubusercontent.com/enescakr55/frontend-carrental/master/OrnekResimler/register.png)
 
-## Build
+<h3>Kullanıcı Bilgileri Düzenleme Sayfası</h3>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+![1](https://raw.githubusercontent.com/enescakr55/frontend-carrental/master/OrnekResimler/hesapduzenle.png)
 
-## Running unit tests
+<h3>Araç Detayları Sayfası</h3>
+  
+![1](https://raw.githubusercontent.com/enescakr55/frontend-carrental/master/OrnekResimler/carDetailPage.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<h3>Anasayfa</h3>
 
-## Running end-to-end tests
+![1](https://raw.githubusercontent.com/enescakr55/frontend-carrental/master/OrnekResimler/anasayfa.png)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+<h3>Sisteme Araç Ekleme Sayfası</h3>
 
-## Further help
+![1](https://raw.githubusercontent.com/enescakr55/frontend-carrental/master/OrnekResimler/addCar.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<h3>Yetersiz Findeks Puanı Uyarısı</h3>
+
+![1](https://raw.githubusercontent.com/enescakr55/frontend-carrental/master/OrnekResimler/YetersizFindex.png)
+
+<h3>Kullanıcı Araç Kiralama Ve Ödeme Sayfası</h3>
+
+![1](https://raw.githubusercontent.com/enescakr55/frontend-carrental/master/OrnekResimler/Kirala1.png)
