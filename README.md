@@ -1,4 +1,4 @@
-<h1>Angular ile Yazılmış Araç Kiralama Sistemi Frontend</h1>
+<h1>Araç Kiralama Sistemi Frontend (Angular)</h1>
 
 Projeye ait BACKEND projesi https://github.com/enescakr55/ReCapProject adresindedir.
 
